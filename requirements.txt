@@ -1,0 +1,8 @@
+fastAPI
+uvicorn
+sqlalchemy
+pyjwt 
+bcrypt
+python-dotenv
+jose
+python-multipart
