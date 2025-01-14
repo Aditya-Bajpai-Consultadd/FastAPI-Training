@@ -24,8 +24,7 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
-    access_token = jwtToken.create_access_token(data={"sub": user.username, "role": user.role})
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {"message": "user successfully created"}
 
 @app.post("/login", response_model=Token)
 def login(form_data: jwtToken.OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
