@@ -14,7 +14,7 @@ def index():
     return {'data': {'name': 'Aditya'}}
 
 
-@app.post("/register", response_model=Token)
+@app.post("/register")
 def register(user: UserCreate, db: Session = Depends(get_db)):
     db_user = db.query(User).filter(User.username == user.username).first()
     if db_user:
